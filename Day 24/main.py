@@ -12,6 +12,7 @@ with open("./Input/Letters/starting_letter.txt") as file:
     contents = file.read()
 
 # Reads the invited guests and stores them in a list called 'name_list'
+# 'splitlines() is more concise as it simultaneously removes the \n character, but 'readlines()' was the example used in the course
 with open("./Input/Names/invited_names.txt") as names:
     name_list = names.readlines()
 
