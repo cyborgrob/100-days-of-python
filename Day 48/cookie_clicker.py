@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+import time
 
 # Create Chrome webdriver
 chrome_options = webdriver.ChromeOptions()
@@ -11,6 +12,8 @@ driver.get('https://orteil.dashnet.org/experiments/cookie/')
 cookie = driver.find_element(By.XPATH, value='//*[@id="cookie"]')
 
 run = True
+# How long you want the program to run
+timeout = time.time() + 60
 
 
 def check_for_upgrades():
@@ -74,3 +77,7 @@ while run:
         cookie.click()
     # Check for upgrades
     check_for_upgrades()
+    if time.time() > timeout:
+        run = False
+
+driver.quit()
